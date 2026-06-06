@@ -30,6 +30,13 @@ import traceback
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import kaxanuk.data_curator
+import sys
+
+PROJECT_ROOT = pathlib.Path(__file__).resolve().parent
+SRC_DIR = PROJECT_ROOT / "src"
+
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
 
 
 # Load the user's environment variables from Config/.env, including data provider API keys
@@ -41,9 +48,9 @@ if (pathlib.Path('src/data_curator/alpha_signals/simple_moving_average_alpha_sig
     and pathlib.Path('src/data_curator/outlier_adjusted_data/shares_outstanding_outlier_adjusted.py').is_file()
 ):
     # noinspection PyUnresolvedReferences
-    from data_curator.alpha_signals import simple_moving_average_alpha_signal
-    from data_curator.market import missing_market_data
-    from data_curator.outlier_adjusted_data import shares_outstanding_outlier_adjusted
+    from src.data_curator.alpha_signals import simple_moving_average_alpha_signal
+    from src.data_curator.market import missing_market_data
+    from src.data_curator.outlier_adjusted_data import shares_outstanding_outlier_adjusted
 
     custom_calculation_modules = [
         simple_moving_average_alpha_signal,
