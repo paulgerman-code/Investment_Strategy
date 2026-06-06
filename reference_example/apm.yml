@@ -1,0 +1,10 @@
+name: Research-Challenge-2026
+version: 1.0.0
+description: APM project for Research-Challenge-2026
+author: Arturo Aguilar
+dependencies:
+  apm:
+  - KaxaNuk/KaxaNuk-APM/common
+  mcp: []
+includes: auto
+scripts: {}
